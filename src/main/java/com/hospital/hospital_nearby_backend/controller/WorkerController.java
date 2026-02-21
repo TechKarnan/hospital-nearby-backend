@@ -2,6 +2,7 @@ package com.hospital.hospital_nearby_backend.controller;
 
 import com.hospital.hospital_nearby_backend.entity.WorkerProfile;
 import com.hospital.hospital_nearby_backend.enums.Role;
+import com.hospital.hospital_nearby_backend.enums.Skill;
 import com.hospital.hospital_nearby_backend.repo.WorkerProfileRepository;
 import com.hospital.hospital_nearby_backend.service.LocationService;
 import lombok.RequiredArgsConstructor;
@@ -55,9 +56,11 @@ public class WorkerController {
     @GetMapping("/nearby")
     public List<Map<String, Object>> getNearbyEngineers(
             @RequestParam Double lat,
-            @RequestParam Double lon) {
+            @RequestParam Double lon,
+            @RequestParam Skill skill
+    ) {
 
         return locationService.findNearbyUsers(
-                lat, lon, Role.ENGINEER);
+                lat, lon, Role.ENGINEER,skill);
     }
 }

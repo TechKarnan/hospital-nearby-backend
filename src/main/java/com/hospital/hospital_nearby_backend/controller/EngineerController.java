@@ -26,9 +26,10 @@ public class EngineerController {
     @GetMapping("/nearby")
     public List<Map<String, Object>> getNearbyWorkers(
             @RequestParam Double lat,
-            @RequestParam Double lon) {
+            @RequestParam Double lon,
+            @RequestParam Skill skill) {
 
         return locationService.findNearbyUsers(
-                lat, lon, Role.WORKER);
+                lat, lon, Role.WORKER,skill);
     }
 }
