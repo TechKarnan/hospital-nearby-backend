@@ -19,6 +19,12 @@ public class AuthController {
     private  final WorkerProfileRepository workerProfileRepository;
 
 
+    @GetMapping("/health")
+    private String test(){
+        return "service up";
+    }
+
+
     @PostMapping("/register")
     public SiteHireUser register(@RequestBody RegisterRequest request) {
 
